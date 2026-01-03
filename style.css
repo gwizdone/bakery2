@@ -1,0 +1,189 @@
+/* ========================================================================= */
+/* 1. CORE SETTINGS & THEME VARIABLES                                       */
+/* ========================================================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-blue: #0A192F;    /* Deep Navy Background */
+    --secondary-blue: #172A45;  /* Card Background */
+    --accent-green: #64FFDA;    /* Mint Green Neon (Highlights) */
+    --text-light: #CCD6F6;      /* Main Text */
+    --text-dark: #8892B0;       /* Sub-text */
+    --lightest-navy: #233554;   /* Borders/Hover states */
+    --font-main: 'Montserrat', sans-serif;
+}
+
+body {
+    font-family: 'Open Sans', sans-serif;
+    line-height: 1.6;
+    color: var(--text-light);
+    /* BAKERY BACKGROUND LOGIC */
+    background: linear-gradient(rgba(10, 25, 47, 0.85), rgba(10, 25, 47, 0.85)), 
+                url('photo-1583338917451-face2751d8d5.avif'); 
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: background 0.3s ease;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+/* Header Layout: Three-way split */
+.header-flex {
+    display: flex;
+    justify-content: space-between; /* Pushes logo left, nav middle, tools right */
+    align-items: center;
+}
+/* Navigation Link Visibility */
+nav#main-nav ul li a {
+    color: var(--accent-green); /* This uses that bright Neon Mint */
+    text-decoration: none;
+    text-transform: uppercase;
+    font-size: 16px;
+    font-weight: 700;          /* Makes the text bolder */
+    letter-spacing: 1px;      /* Spreads letters out for readability */
+    transition: all 0.3s ease;
+    padding: 5px 10px;
+}
+
+/* Hover effect to make it feel interactive */
+nav#main-nav ul li a:hover {
+    color: #ffffff;            /* Turns white when you hover */
+    text-shadow: 0 0 10px var(--accent-green); /* Adds a "glow" effect */
+}
+
+/* Active Page Highlight */
+nav#main-nav ul li a.active {
+    border-bottom: 2px solid var(--accent-green);
+}
+
+.header-tools {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* IMAGE FIX: This stops images from taking over the page */
+.product-card img, .product-image {
+    width: 100%;       /* Fits the card width */
+    height: 250px;     /* Forces a consistent height */
+    object-fit: cover; /* Crops nicely so it doesn't stretch */
+    border-radius: 8px;
+    display: block;    /* Removes bottom gaps */
+}
+
+/* Grid Orderliness */
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    padding: 40px 0;
+}
+
+.product-card {
+    background: var(--secondary-blue);
+    border: 1px solid var(--lightest-navy);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    transition: all 0.3s ease;
+}
+
+.product-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--accent-green);
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.product-image {
+    width: 100%;
+    height: 250px; /* Fixed height for orderliness */
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.5em;
+    color: var(--accent-green);
+    font-weight: bold;
+    margin: 10px 0;
+}
+
+/* ========================================================================= */
+/* 4. FORMS & BUTTONS                                                       */
+/* ========================================================================= */
+input, textarea {
+    width: 100%;
+    padding: 12px;
+    background: var(--lightest-navy);
+    border: 1px solid var(--secondary-blue);
+    color: white;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.add-to-cart-btn, .cta-button {
+    background: transparent;
+    border: 1px solid var(--accent-green);
+    color: var(--accent-green);
+    padding: 12px 20px;
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 4px;
+    transition: 0.3s;
+}
+
+.add-to-cart-btn:hover {
+    background: rgba(100, 255, 218, 0.1);
+}
+
+/* ========================================================================= */
+/* 5. FOOTER                                                                */
+/* ========================================================================= */
+footer {
+    text-align: center;
+    padding: 40px 0;
+    background: var(--primary-blue);
+    border-top: 1px solid var(--lightest-navy);
+    color: var(--text-dark);
+}
+/* Night Mode Styles */
+body.night-mode {
+    background: #050a14; /* Even darker black/navy */
+    background-image: none; /* Removes the bakery image for a clean night look */
+}
+
+body.night-mode .product-card {
+    background: #0a192f; /* Darker cards */
+    border-color: #172a45;
+}
+
+body.night-mode header {
+    background: #000000;
+}
+.logo-img {
+    height: 50px;       /* Adjust this number to make it bigger or smaller */
+    width: auto;        /* Keeps the image from looking squished */
+    display: block;
+    transition: transform 0.3s ease;
+}
+
+.logo-img:hover {
+    transform: scale(1.1); /* Give it a little "pop" when hovered */
+}
+
+/* Adjust the header-flex to make sure the logo and nav stay aligned */
+.header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+}
